@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "simple-block/promo-slider",
+	"version": "0.1.0",
+	"title": "Simple Promo Slider",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Bloque de slider para promociones simples. Ideal para destacar ofertas y anuncios en tu sitio web.",
+	"example": {
+		"attributes": {
+			"speed": "5000",
+			"sliders": [
+				{ "text": "💎 100% ORIGINALES 💎" },
+				{ "text": "💰 10% de descuento con transferencia 💰" },
+				{ "text": "📦 Envío gratis a partir de $200.000 📦" },
+				{ "text": "💳 Pagá en hasta 12 cuotas fijas 💳" }
+			]
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": true,
+		"multiple": true,
+		"anchor": true,
+		"customClassName": true,
+		"align": [ "left", "right", "full", "wide"],
+		"alignWide": true,
+		"background": {
+			"backgroundImage": true,
+			"backgroundSize": true
+		},
+		"color": {
+			"gradients": true,
+			"background": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"border": true,
+		"fontSize": true,
+		"lineHeight": true,
+		"layout": true,
+		"lock": true,
+		"renaming": true
+	},
+	"attributes": {
+		"speed": {
+			"type": "string",
+			"default": "5000"
+		},
+		"sliders": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"text": {
+						"type": "string"
+					}
+				},
+				"required": ["text"]
+			}
+		}
+	},
+	"textdomain": "simple-promo-slider",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
