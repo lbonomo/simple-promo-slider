@@ -2,10 +2,10 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "simple-block/promo-slider",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"title": "Simple Promo Slider",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "slides",
 	"description": "Bloque de slider para promociones simples. Ideal para destacar ofertas y anuncios en tu sitio web.",
 	"example": {
 		"attributes": {

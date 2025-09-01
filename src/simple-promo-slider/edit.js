@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, TextControl, Button } from '@wordpress/components';
+import { PanelBody, TextControl, Button, PanelRow } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -59,6 +59,7 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes({ sliders: newSliders });
 	}
 
+
 	return (
 		<>
 			<InspectorControls>
@@ -70,20 +71,17 @@ export default function Edit({ attributes, setAttributes }) {
 						type='number'
 						onChange={onChangeSpeed}
 					/>
-					<div style={{ marginTop: '1em' }}>
+					<div class="sliders-control-container">
 						<strong>{__('Sliders', 'simple-promo-slider')}</strong>
 						{sliders.map((slider, idx) => (
-							<div key={idx} style={{ display: 'flex', alignItems: 'flex-end', gap: '8px', marginBottom: '0.5em' }}>
-								<div style={{ flex: 1 }}>
+							<PanelRow key={idx} style={{ margin: 0}}>
 									<TextControl
-										label={__('Text', 'simple-promo-slider') + ' ' + (idx + 1)}
+										label={__('Slider text', 'simple-promo-slider') + ' ' + (idx + 1)}
 										value={slider.text}
 										onChange={(value) => onChangeSliderText(idx, value)}
 									/>
-								</div>
 								{sliders.length > 1 && (
 									<Button
-										variant="secondary"
 										isDestructive
 										onClick={() => removeSliderControl(idx)}
 										style={{ marginBottom: '8px' }}
@@ -91,17 +89,50 @@ export default function Edit({ attributes, setAttributes }) {
 										×
 									</Button>
 								)}
-							</div>
+							</PanelRow>
 						))}
 						<Button variant="primary" onClick={addSliderControl}>
-							{__('Add Slider Text', 'simple-promo-slider')} +
+							{__('Add slider text', 'simple-promo-slider')} +
 						</Button>
 					</div>
 				</PanelBody>
 			</InspectorControls>
-			<p {...useBlockProps()}>
-				{__('Simple Promo Slider – hello from the editor!', 'simple-promo-slider')}
-			</p>
+			
+			<div {...useBlockProps()}>
+				{sliders.length === 0 ? (
+					<div className="editor-empty-state">
+						{__('Add your first slider text using the + button in the sidebar', 'simple-promo-slider')}
+					</div>
+				) : (
+					<div className="editor-slider-container">
+						{sliders.length > 1 && (
+							<button className="editor-slider-nav slider-prev">
+								<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M15.41 16.58L10.83 12l4.58-4.58L14 6l-6 6 6 6 1.41-1.42z"/>
+								</svg>
+							</button>
+						)}
+						
+						<div className="editor-slider-wrapper">
+							<div className="editor-slider-track">
+								{sliders.map((slider, index) => (
+									<div key={index} className={`editor-slide ${index === 0 ? 'active' : ''}`}>
+										{slider.text || __('Empty text', 'simple-promo-slider')}
+									</div>
+								))}
+							</div>
+						</div>
+						
+						{sliders.length > 1 && (
+							<button className="editor-slider-nav slider-next">
+								<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M8.59 16.58L13.17 12 8.59 7.42 10 6l6 6-6 6-1.41-1.42z"/>
+								</svg>
+							</button>
+						)}
+					</div>
+				)}
+			</div>
 		</>
 	);
 }

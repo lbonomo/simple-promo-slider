@@ -4,6 +4,102 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-simple-promo-slider {
-	border: 1px dotted #f00;
+.wp-block-simple-block-promo-slider {
+	/* Editor preview styles */
+
+	.editor-empty-state {
+		text-align: center;
+		color: #666;
+		border: 2px dashed #ddd;
+	}
+
+	.editor-slider-container {
+		position: relative;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		background: inherit;
+		color: inherit;
+	}
+
+	.editor-slider-wrapper {
+		flex: 1;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.editor-slider-track {
+		display: flex;
+		width: 100%;
+	}
+
+	.editor-slide {
+		min-width: 100%;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.editor-slider-nav {
+		background: transparent;
+		border: none;
+		color: inherit;
+		padding: 10px 15px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 40px;
+
+		&:hover {
+			opacity: 0.7;
+		}
+
+		svg {
+			width: 1em;
+			height: 1em;
+			pointer-events: none;
+		}
+	}
+}
+
+
+// Inspector controls styles
+
+.sliders-control-container {
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+
+	.components-panel__row {
+		display: flex;
+		flex-direction: row;
+		align-items: end;
+
+		.components-base-control {
+			margin: 0;
+			width: 100%;
+		}
+
+		label {
+			text-transform: none;
+		}
+
+		// X roja
+		.components-button {
+			margin: 0 !important;
+			font-size: 1rem;
+			font-weight: bold;
+		}
+	}
+
+	.components-button.is-primary {
+		margin-top: 1em;
+		text-align: center;
+		display: block;
+	}
+
 }

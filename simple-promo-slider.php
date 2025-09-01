@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Simple Promo Slider
  * Description:       Example block scaffolded with Create Block tool.
- * Version:           0.1.1
+ * Version:           1.0.0
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Author:            The WordPress Contributors

@@ -15,6 +15,8 @@ Simple Promo Slider es un bloque personalizado para el editor de WordPress (Gute
 - 💾 **Persistencia automática** de todos los datos
 - 🎨 **Interfaz intuitiva** integrada con WordPress
 
+![admin](./docs/admin.png)
+
 #### 🎨 Personalización
 
 ##### Soporte para Temas
@@ -25,6 +27,8 @@ El bloque soporta las siguientes características de personalización:
 - ✅ **Bordes**: Border radius, width, style
 - ✅ **Alineación**: Left, right, full, wide
 - ✅ **Layout**: Responsive y flexible
+
+
 
 ### **Frontend**
 - ◀️▶️ **Navegación manual** con flechas (solo aparecen si hay más de 1 slide)
