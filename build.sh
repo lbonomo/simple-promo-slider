@@ -32,8 +32,6 @@ if [ -f "$zipfile" ]; then
     rm "$zipfile"
 fi
 
-cd "$toZip"
-
 zip -r "$zipfile" "./"
 
 # Clean up temporary files
